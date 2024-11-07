@@ -3,14 +3,16 @@ kind: Pod
 metadata:
   name: nginx
 spec:
-  preferredDuringSchedulingIgnoredDuringExecution:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
       - weight: 1
         preference:
           matchExpressions:
-          - key: hardware
+          - key: another-node-label-value
             operator: In
             values:
-            - gpu
+            - another-node-label-value
   containers:
   # docker run -d --name nginx nginx
   - name: nginx
