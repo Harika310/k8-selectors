@@ -5,6 +5,7 @@ metadata:
 spec:
   affinity:
     nodeAffinity:
+      # hard ware
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
@@ -22,4 +23,5 @@ spec:
   - key: "hardware"
     operator: "Equal"
     value: "gpu"
-    effect: "NoSchedule" # new pods will not schedule
+    effect: "NoSchedule"
+    
